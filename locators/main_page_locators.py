@@ -2,6 +2,8 @@ from selenium.webdriver.common.by import By
 
 
 class MainPageLocators():
+    #заголовок страницы
+    MAIN_HEADER = (By.CLASS_NAME, "Home_Header__iJKdX")
     #кнопка "Заказать" в центре страницы
     MIDDLE_BUTTON_ORDER = (By.XPATH, ".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']")
     #вопросы о важном(вопросы)
