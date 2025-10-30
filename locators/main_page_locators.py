@@ -15,6 +15,11 @@ class MainPageLocators():
     QUESTION_6 = (By.ID, "accordion__heading-5")
     QUESTION_7 = (By.ID, "accordion__heading-6")
     QUESTION_8 = (By.ID, "accordion__heading-7")
+
+    DICTIONARY_QUESTIONS = {1: QUESTION_1, 2: QUESTION_2,
+                            3: QUESTION_3, 4: QUESTION_4,
+                            5: QUESTION_5, 6: QUESTION_6,
+                            7: QUESTION_7, 8: QUESTION_8}
     #вопросы о важном(ответы)
     ANSWER_1 = (By.XPATH, ".//div[@id='accordion__panel-0']/p")
     ANSWER_2 = (By.XPATH, ".//div[@id='accordion__panel-1']/p")
@@ -24,3 +29,8 @@ class MainPageLocators():
     ANSWER_6 = (By.XPATH, ".//div[@id='accordion__panel-5']/p")
     ANSWER_7 = (By.XPATH, ".//div[@id='accordion__panel-6']/p")
     ANSWER_8 = (By.XPATH, ".//div[@id='accordion__panel-7']/p")
+
+    DICTIONARY_ANSWERS = {1: ANSWER_1, 2: ANSWER_2,
+                          3: ANSWER_3, 4: ANSWER_4,
+                          5: ANSWER_5, 6: ANSWER_6,
+                          7: ANSWER_7, 8: ANSWER_8}
