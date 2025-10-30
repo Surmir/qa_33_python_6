@@ -12,11 +12,9 @@ class BasePage():
     def go_to_page(self, url):
         self.driver.get(url)
 
-    @allure.step('Проверяем URL({url}) страницы')
-    def check_page_url(self, url):
-        actually_url = self.driver.current_url
-        expected_url = url
-        assert actually_url == expected_url, f"Url({actually_url}) не совпадает с ({expected_url})"
+    @allure.step('Получаем URL страницы')
+    def get_page_url(self):
+        return self.driver.current_url
     
     @allure.step('Ожидаем видимости элемента страницы')
     def wait_for_visibility_element(self, element, wait_time=5):
@@ -31,11 +29,9 @@ class BasePage():
         element = self.driver.find_element(*element)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
 
-    @allure.step('Проверяем текст({text})')
-    def check_text(self, element, text):
-        actually_text = self.driver.find_element(*element).text
-        expected_text = text
-        assert actually_text == expected_text, f"Текст({actually_text}) не совпадает с ({expected_text})"
+    @allure.step('Получаем текст элемента')
+    def get_text(self, element):
+        return self.driver.find_element(*element).text
 
     @allure.step('Заполняем поле({placeholder})')
     def set_data(self, placeholder, data):
