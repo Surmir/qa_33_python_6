@@ -5,6 +5,8 @@ class UserOne():
     ADRESS = '2-я Радиаторская улица, 6'
     METRO_STATION = 'Войковская'
     PHONE_NUMBER = '+79215436789'
+    DATE = '02.11.2025'
+    COMMENT = None
 
 
 class UserTwo():
@@ -14,6 +16,8 @@ class UserTwo():
     ADRESS = 'улица Доватора, 17'
     METRO_STATION = 'Спортивная'
     PHONE_NUMBER = '+79215673412'
+    DATE = '30.11.2025'
+    COMMENT = 'Позвоните за 5-10 мин до доставки'
 
 
 class Answers():
