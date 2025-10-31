@@ -13,7 +13,9 @@ class TestMainPage():
         m_page = MainPage(driver)
 
         m_page.open_main_page()
+        m_page.wait_load_main_page()
         m_page.click_yandex_logo()
+        m_page.wait_load_dzen_page()
         
         assert m_page.check_open_page_dzen() == True
 
@@ -22,6 +24,7 @@ class TestMainPage():
         m_page = MainPage(driver)
 
         m_page.open_main_page()
+        m_page.wait_load_main_page()
         m_page.click_button_order_header()
 
         assert m_page.check_open_order_page() == True
@@ -31,6 +34,7 @@ class TestMainPage():
         m_page = MainPage(driver)
 
         m_page.open_main_page()
+        m_page.wait_load_main_page()
         m_page.click_button_order_middle()
 
         assert m_page.check_open_order_page() == True
