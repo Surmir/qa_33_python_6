@@ -9,7 +9,7 @@ class TestMainPage():
     @allure.title('Проверка перехода в "Дзен" по логотипу "Яндекс"')
     @allure.description('При нажатии на логотип Яндекса, ' \
     'в новом окне через редирект откроется главная страница Дзена')
-    def test_transition_to_dzen(self, driver):
+    def test_yandex_logo_transition_to_dzen(self, driver):
         m_page = MainPage(driver)
 
         m_page.open_main_page()
