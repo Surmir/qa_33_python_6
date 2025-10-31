@@ -42,6 +42,9 @@ class Answers():
     'Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.'
     TEXT_8 = 'Да, обязательно. Всем самокатов! И Москве, и Московской области.'
 
+    DICTIONARY_ANSWERS = {1: TEXT_1, 2: TEXT_2, 3: TEXT_3, 4: TEXT_4,
+                          5: TEXT_5, 6: TEXT_6, 7: TEXT_7, 8: TEXT_8}
+
 class ColorScooter():
 
     COLOR_BLACK = 'чёрный жемчуг'
