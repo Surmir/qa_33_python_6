@@ -18,9 +18,7 @@ class OrderPageLocators():
     ORDER_HEADER_2 = (By.XPATH, ".//div[text()='Про аренду']")
     #поля заполнения
     PLACEHOLDER_DATE = (By.XPATH, ".//input[@placeholder='* Когда привезти самокат']")
-    RENTA_TIME = (By.XPATH, ".//div[text()='* Срок аренды']")
-    RENTA_TIME_ONE_DAY = (By.XPATH, ".//div[text()='сутки']")
-    RENTA_TIME_TWO_DAY = (By.XPATH, ".//div[text()='двое суток']")
+    RENT_TIME = (By.XPATH, ".//div[text()='* Срок аренды']")
     COLOR_SCOOTER = (By.XPATH, ".//div[text()='Цвет самоката']")
     CHECKBOX_BLACK = (By.ID, "black")
     CHECKBOX_GREY = (By.ID, "grey")
