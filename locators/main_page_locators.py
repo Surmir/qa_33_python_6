@@ -2,6 +2,8 @@ from selenium.webdriver.common.by import By
 
 
 class MainPageLocators():
+    #заголовок страницы 'Дзен'
+    DZEN_HEADER = (By.XPATH, ".//div[@class='dzen-layout--desktop-base-header__logoContainer-pu dzen-layout--desktop-base-header__isMorda-2n']")
     #заголовок страницы
     MAIN_HEADER = (By.CLASS_NAME, "Home_Header__iJKdX")
     #кнопка "Заказать" в центре страницы
