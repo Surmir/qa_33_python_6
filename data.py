@@ -7,6 +7,7 @@ class UserOne():
     PHONE_NUMBER = '+79215436789'
     DATE = '02.11.2025'
     RENT_TIME = 'сутки'
+    COLOR = 'чёрный жемчуг'
     COMMENT = None
 
 
@@ -19,6 +20,7 @@ class UserTwo():
     PHONE_NUMBER = '+79215673412'
     DATE = '30.11.2025'
     RENT_TIME = 'двое суток'
+    COLOR = 'серая безысходность'
     COMMENT = 'Позвоните за 5-10 мин до доставки'
 
 
