@@ -6,6 +6,7 @@ class UserOne():
     METRO_STATION = 'Войковская'
     PHONE_NUMBER = '+79215436789'
     DATE = '02.11.2025'
+    RENT_TIME = 'сутки'
     COMMENT = None
 
 
@@ -17,6 +18,7 @@ class UserTwo():
     METRO_STATION = 'Спортивная'
     PHONE_NUMBER = '+79215673412'
     DATE = '30.11.2025'
+    RENT_TIME = 'двое суток'
     COMMENT = 'Позвоните за 5-10 мин до доставки'
 
 
