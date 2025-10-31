@@ -38,6 +38,12 @@ class MainPage(BasePage):
         self.skroll_to_element(button)
         self.click_on_element(button)
 
+    @allure.step('Проверяем переход на страницу заказа')
+    def check_open_order_page(self):
+        actual_url = self.get_page_url()
+        expect_url = Url.ORDER_PAGE
+        assert actual_url == expect_url
+
     @allure.step('Нажимаем на вопрос№{key} из раздела "Вопросы о важном"')
     def click_on_question(self, key):
         qestion = MPLocs.DICTIONARY_QUESTIONS[key]
