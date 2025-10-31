@@ -22,6 +22,10 @@ class MainPage(BasePage):
     def click_yandex_logo(self):
         self.click_on_element(BPLocs.HEADER_LOGO_YANDEX)
 
+    @allure.step('Ожидание загрузки страницы "Дзен"')
+    def wait_load_dzen_page(self):
+        self.wait_for_visibility_element(MPLocs.DZEN_HEADER, 10)
+
     @allure.step('Проверяем переход на страницу "Дзен"')
     def check_open_page_dzen(self):
         actual_url = self.get_page_url()
