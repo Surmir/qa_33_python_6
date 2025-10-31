@@ -10,6 +10,8 @@ class UserOne():
     COLOR = 'чёрный жемчуг'
     COMMENT = None
 
+    USER_ONE = [NAME, LAST_NAME, ADRESS, METRO_STATION,
+              PHONE_NUMBER, DATE, RENT_TIME, COLOR, COMMENT]
 
 class UserTwo():
 
@@ -23,6 +25,8 @@ class UserTwo():
     COLOR = 'серая безысходность'
     COMMENT = 'Позвоните за 5-10 мин до доставки'
 
+    USER_TWO = [NAME, LAST_NAME, ADRESS, METRO_STATION,
+              PHONE_NUMBER, DATE, RENT_TIME, COLOR, COMMENT]
 
 class Answers():
 
