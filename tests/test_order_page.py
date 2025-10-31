@@ -17,7 +17,7 @@ class TestOrderPage():
 
         assert o_page.check_open_main_page() == True
 
-    @allure.title('Проверка позитивного сценария "Заказ самоката"')
+    @allure.title('Проверка позитивного сценария "Заказ самоката" с двумя наборами данных')
     @allure.description('Заполняем форму заказа. ' \
     'Проверяем, что появилось всплывающее окно с сообщением об успешном создании заказа.')
     @pytest.mark.parametrize('user', [UserOne.USER_ONE, UserTwo.USER_TWO])
