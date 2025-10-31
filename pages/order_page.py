@@ -2,6 +2,7 @@ from pages.base_page import BasePage
 from locators.base_page_locators import BasePageLocators as BPLocs
 from locators.order_page_locators import OrderPageLocators as OPLocs
 from data import ColorScooter
+from urls import Url
 import allure
 
 
@@ -10,6 +11,10 @@ class OrderPage(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
+    @allure.step('Открываем страницу заказа')
+    def open_order_page(self):
+        self.go_to_page(Url.ORDER_PAGE)
+
     @allure.step('Ожидание загрузки страницы оформления "Для кого самокат"')
     def wait_load_order_form_one(self):
         self.wait_for_visibility_element(OPLocs.ORDER_HEADER_ONE)
@@ -17,6 +22,12 @@ class OrderPage(BasePage):
     @allure.step('Нажимаем на логотип "Самокат"')
     def click_scooter_logo(self):
         self.click_on_element(BPLocs.HEADER_LOGO_SCOOTER)
+
+    @allure.step('Проверяем переход на главную страницу')
+    def check_open_main_page(self):
+        actual_url = self.get_page_url()
+        expect_url = Url.MAIN_PAGE
+        assert actual_url == expect_url
 
     @allure.step('Заполняем поле "Имя"')
     def set_name_placeholder(self, name):
