@@ -21,9 +21,22 @@ class BasePage():
     def wait_for_visibility_element(self, element, wait_time=5):
         WebDriverWait(self.driver, wait_time).until(EC.visibility_of_element_located(element))
 
+    @allure.step('Ожидаем открытия второго окна')
+    def wait_new_window_is_opened(self, wait_time=5):
+        WebDriverWait(self.driver, wait_time).until(EC.number_of_windows_to_be(2))
+
+    @allure.step('Переходим в новое окно')
+    def go_to_new_window(self):
+        original_window = self.driver.current_window_handle
+        for window_handle in self.driver.window_handles:
+            if window_handle != original_window:
+                self.driver.switch_to.window(window_handle)
+                break
+
     @allure.step('Нажимаем на элемент страницы')
     def click_on_element(self, element):
-        self.driver.find_element(*element).click()
+        element = WebDriverWait(self.driver, 2).until(EC.element_to_be_clickable(element))
+        element.click()
 
     @allure.step('Прокручиваем до элемента страницы')
     def skroll_to_element(self, element):
