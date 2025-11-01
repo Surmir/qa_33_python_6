@@ -24,13 +24,15 @@ class MainPage(BasePage):
 
     @allure.step('Ожидание загрузки страницы "Дзен"')
     def wait_load_dzen_page(self):
-        self.wait_for_visibility_element(MPLocs.DZEN_HEADER, 10)
+        self.wait_new_window_is_opened()
+        self.go_to_new_window()
+        self.wait_for_visibility_element(MPLocs.DZEN_HEADER)
 
     @allure.step('Проверяем переход на страницу "Дзен"')
     def check_open_page_dzen(self):
         actual_url = self.get_page_url()
         expect_url = Url.DZEN_PAGE
-        assert actual_url == expect_url
+        return actual_url == expect_url
 
     @allure.step('Нажимаем на кнопку "Заказать" в заголовке')
     def click_button_order_header(self):
@@ -46,7 +48,7 @@ class MainPage(BasePage):
     def check_open_order_page(self):
         actual_url = self.get_page_url()
         expect_url = Url.ORDER_PAGE
-        assert actual_url == expect_url
+        return actual_url == expect_url
 
     @allure.step('Нажимаем на вопрос№{key} из раздела "Вопросы о важном"')
     def click_on_question(self, key):
@@ -60,4 +62,4 @@ class MainPage(BasePage):
 
     @allure.step('Получаем текст ответа на вопрос№{key}')
     def get_text_answer(self, key):
-        self.get_text(MPLocs.DICTIONARY_ANSWERS[key])
+        return self.get_text(MPLocs.DICTIONARY_ANSWERS[key])
