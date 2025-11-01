@@ -10,6 +10,8 @@ class OrderPageLocators():
     PLACEHOLDER_LAST_NAME = (By.XPATH, ".//input[@placeholder='* Фамилия']")
     PLACEHOLDER_ADRESS = (By.XPATH, ".//input[@placeholder='* Адрес: куда привезти заказ']")
     PLACEHOLDER_METRO_STATION = (By.XPATH, ".//input[@placeholder='* Станция метро']")
+    STATION_ONE = (By.XPATH, ".//div[text()='Войковская']")
+    STATION_TWO = (By.XPATH, ".//div[text()='Спортивная']")
     PLACEHOLDER_PHONE_NUMBER = (By.XPATH, ".//input[@placeholder='* Телефон: на него позвонит курьер']")
     #кнопка далее
     BUTTON_NEXT = (By.XPATH, ".//button[text()='Далее']")
@@ -18,7 +20,12 @@ class OrderPageLocators():
     ORDER_HEADER_TWO = (By.XPATH, ".//div[text()='Про аренду']")
     #поля заполнения
     PLACEHOLDER_DATE = (By.XPATH, ".//input[@placeholder='* Когда привезти самокат']")
-    RENT_TIME = (By.XPATH, ".//div[text()='* Срок аренды']")
+    DATE_ONE = (By.XPATH, ".//div[text()='2']")
+    DATE_TWO = (By.XPATH, ".//div[text()='30']")
+    RENT_TIME = (By.CLASS_NAME, "Dropdown-placeholder")
+    RENT_TIME_MENU = (By.XPATH, ".//div[@class='Dropdown-menu']")
+    RENT_TIME_ONE = (By.XPATH, ".//div[text()='сутки']")
+    RENT_TIME_TWO = (By.XPATH, ".//div[text()='двое суток']")
     COLOR_SCOOTER = (By.XPATH, ".//div[text()='Цвет самоката']")
     CHECKBOX_BLACK = (By.ID, "black")
     CHECKBOX_GREY = (By.ID, "grey")
@@ -28,4 +35,4 @@ class OrderPageLocators():
     ORDER_HEADER_CONFIRM = (By.XPATH, ".//div[text()='Хотите оформить заказ?']")
     BUTTON_YES = (By.XPATH, ".//button[text()='Да']")
     #лист успешног оформления
-    ORDER_HEADER_SUCCESS = (By.XPATH, ".//div[text()='Заказ оформлен']")
+    ORDER_HEADER_SUCCESS = (By.CLASS_NAME, "Order_ModalHeader__3FDaJ")

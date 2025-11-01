@@ -51,5 +51,20 @@ class Answers():
 
 class ColorScooter():
 
-    COLOR_BLACK = 'чёрный жемчуг'
-    COLOR_GREY = 'серая безысходность'
+    BLACK = 'чёрный жемчуг'
+    GREY = 'серая безысходность'
+
+class MetroStation():
+
+    ONE = 'Войковская'
+    TWO = 'Спортивная'
+
+class Date():
+
+    ONE = '02.11.2025'
+    TWO = '30.11.2025'
+
+class RentTime():
+
+    ONE = 'сутки'
+    TWO = 'двое суток'

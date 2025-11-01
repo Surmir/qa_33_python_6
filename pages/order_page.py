@@ -1,7 +1,7 @@
 from pages.base_page import BasePage
 from locators.base_page_locators import BasePageLocators as BPLocs
 from locators.order_page_locators import OrderPageLocators as OPLocs
-from data import ColorScooter
+from data import ColorScooter, MetroStation, Date, RentTime
 from urls import Url
 import allure
 
@@ -27,7 +27,7 @@ class OrderPage(BasePage):
     def check_open_main_page(self):
         actual_url = self.get_page_url()
         expect_url = Url.MAIN_PAGE
-        assert actual_url == expect_url
+        return actual_url == expect_url
 
     @allure.step('Заполняем поле "Имя"')
     def set_name_placeholder(self, name):
@@ -43,9 +43,17 @@ class OrderPage(BasePage):
 
     @allure.step('Заполняем поле "Станция метро"')
     def set_metro_station_placeholder(self, metro):
-        element = OPLocs.PLACEHOLDER_METRO_STATION
-        self.set_data(element, metro)
-        self.select_text(element, metro)
+        station_one = MetroStation.ONE
+        station_two= MetroStation.TWO
+        placeholder = OPLocs.PLACEHOLDER_METRO_STATION
+        self.click_on_element(placeholder)
+        self.set_data(placeholder, metro)
+        if metro == station_one:
+            self.click_on_element(OPLocs.STATION_ONE)
+        elif metro == station_two:
+            self.click_on_element(OPLocs.STATION_TWO)
+        else:
+            print(f'В тесте реализованы следующие станции({station_one}, {station_two})')
 
     @allure.step('Заполняем поле "Телефон: на него позвонит курьер"')
     def set_phone_number_placeholder(self, phone):
@@ -69,18 +77,34 @@ class OrderPage(BasePage):
 
     @allure.step('Заполняем поле "Когда привезти самокат"')
     def set_date_placeholder(self, date):
-        self.set_data(OPLocs.PLACEHOLDER_DATE, date)
+        date_one = Date.ONE
+        date_two= Date.TWO
+        placeholder = OPLocs.PLACEHOLDER_DATE
+        self.click_on_element(placeholder)
+        self.set_data(placeholder, date)
+        if date == date_one:
+            self.click_on_element(OPLocs.DATE_ONE)
+        elif date == date_two:
+            self.click_on_element(OPLocs.DATE_TWO)
+        else:
+            print(f'В тесте реализованы следующие даты({date_one}, {date_two})')
 
     @allure.step('Заполняем поле "Срок аренды"')
     def set_rent_time_placeholder(self, rent_time):
-        element = OPLocs.RENT_TIME
-        self.click_on_element(element)
-        self.select_text(element, rent_time)
+        rent_time_one = RentTime.ONE
+        rent_time_two= RentTime.TWO
+        self.click_on_element(OPLocs.RENT_TIME)
+        if rent_time == rent_time_one:
+            self.click_on_element(OPLocs.RENT_TIME_ONE)
+        elif rent_time == rent_time_two:
+            self.click_on_element(OPLocs.RENT_TIME_TWO)
+        else:
+            print(f'В тесте реализованы следующие сроки аренды({rent_time_one}, {rent_time_two})')
 
     allure.step('Выбираем {color} цвет самоката')
     def choose_color_scooter(self, color):
-        black = ColorScooter.COLOR_BLACK
-        grey = ColorScooter.COLOR_GREY
+        black = ColorScooter.BLACK
+        grey = ColorScooter.GREY
         if color == black:
             self.click_on_element(OPLocs.CHECKBOX_BLACK)
         elif color == grey:
@@ -90,8 +114,9 @@ class OrderPage(BasePage):
 
     allure.step('Заполняем поле комментарий')
     def set_comment_placeholder(self, comment):
-        self.set_data(OPLocs.PLACEHOLDER_COMMENT, comment)
-
+        if comment != None:
+            self.set_data(OPLocs.PLACEHOLDER_COMMENT, comment)
+            
     @allure.step('Нажимаем кнопку "Заказать" в низу формы оформления')
     def click_button_middle_order(self):
         self.click_on_element(OPLocs.MIDDLE_BUTTON_ORDER)
@@ -113,4 +138,8 @@ class OrderPage(BasePage):
 
     @allure.step('Проверка успешного оформления заказа')
     def check_success_order(self):
-        assert self.wait_for_visibility_element(OPLocs.ORDER_HEADER_SUCCESS).is_displayed()
+        try:
+            self.wait_for_visibility_element(OPLocs.ORDER_HEADER_SUCCESS)
+            return True
+        except:
+            return False
