@@ -50,8 +50,3 @@ class BasePage():
     @allure.step('Заполняем поле({placeholder})')
     def set_data(self, placeholder, data):
         self.driver.find_element(*placeholder).send_keys(data)
-
-    @allure.step('Выбираем "{text}" из выпадающего списка')
-    def select_text(self, element, text):
-        select = Select(self.driver.find_element(*element))
-        select.select_by_visible_text(text)
