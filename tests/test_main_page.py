@@ -1,4 +1,5 @@
 from pages.main_page import MainPage
+from pages.order_page import OrderPage
 from data import Answers
 import pytest
 import allure
@@ -22,20 +23,24 @@ class TestMainPage():
     @allure.title('Проверка перехода на страницу заказа по кнопке "Заказать" в шапке страницы')
     def test_button_order_in_header(self, driver):
         m_page = MainPage(driver)
+        o_page = OrderPage(driver)
 
         m_page.open_main_page()
         m_page.wait_load_main_page()
         m_page.click_button_order_header()
+        o_page.wait_load_order_form_one()
 
         assert m_page.check_open_order_page() == True
 
     @allure.title('Проверка перехода на страницу заказа по кнопке "Заказать" в центре страницы')
     def test_button_order_in_middle(self, driver):
         m_page = MainPage(driver)
+        o_page = OrderPage(driver)
 
         m_page.open_main_page()
         m_page.wait_load_main_page()
         m_page.click_button_order_middle()
+        o_page.wait_load_order_form_one()
 
         assert m_page.check_open_order_page() == True
 
