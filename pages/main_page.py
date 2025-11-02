@@ -7,9 +7,6 @@ import allure
 
 class MainPage(BasePage):
 
-    def __init__(self, driver):
-        super().__init__(driver)
-
     @allure.step('Открываем главную страницу')
     def open_main_page(self):
         self.go_to_page(Url.MAIN_PAGE)

@@ -18,7 +18,7 @@ class TestOrderPage():
         o_page.click_scooter_logo()
         m_page.wait_load_main_page()
 
-        assert o_page.check_open_main_page() == True
+        assert o_page.check_open_main_page()
 
     @allure.title('Проверка позитивного сценария "Заказ самоката" с двумя наборами данных')
     @allure.description('Заполняем форму заказа. ' \
@@ -38,4 +38,4 @@ class TestOrderPage():
         o_page.wait_load_confirm_form()
         o_page.click_button_yes()
 
-        assert o_page.check_success_order() == True
+        assert o_page.check_success_order()

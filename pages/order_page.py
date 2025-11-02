@@ -4,12 +4,10 @@ from locators.order_page_locators import OrderPageLocators as OPLocs
 from data import ColorScooter, MetroStation, Date, RentTime
 from urls import Url
 import allure
+import logging
 
 
 class OrderPage(BasePage):
-
-    def __init__(self, driver):
-        super().__init__(driver)
 
     @allure.step('Открываем страницу заказа')
     def open_order_page(self):
@@ -53,7 +51,7 @@ class OrderPage(BasePage):
         elif metro == station_two:
             self.click_on_element(OPLocs.STATION_TWO)
         else:
-            print(f'В тесте реализованы следующие станции({station_one}, {station_two})')
+            logging.info(f'В тесте реализованы следующие станции({station_one}, {station_two})')
 
     @allure.step('Заполняем поле "Телефон: на него позвонит курьер"')
     def set_phone_number_placeholder(self, phone):
@@ -87,7 +85,7 @@ class OrderPage(BasePage):
         elif date == date_two:
             self.click_on_element(OPLocs.DATE_TWO)
         else:
-            print(f'В тесте реализованы следующие даты({date_one}, {date_two})')
+            logging.info(f'В тесте реализованы следующие даты({date_one}, {date_two})')
 
     @allure.step('Заполняем поле "Срок аренды"')
     def set_rent_time_placeholder(self, rent_time):
@@ -99,7 +97,7 @@ class OrderPage(BasePage):
         elif rent_time == rent_time_two:
             self.click_on_element(OPLocs.RENT_TIME_TWO)
         else:
-            print(f'В тесте реализованы следующие сроки аренды({rent_time_one}, {rent_time_two})')
+            logging.info(f'В тесте реализованы следующие сроки аренды({rent_time_one}, {rent_time_two})')
 
     allure.step('Выбираем {color} цвет самоката')
     def choose_color_scooter(self, color):
@@ -110,7 +108,7 @@ class OrderPage(BasePage):
         elif color == grey:
             self.click_on_element(OPLocs.CHECKBOX_GREY)
         else:
-            print(f'Для выбора доступны следующие цвета({black}, {grey})')
+            logging.info(f'Для выбора доступны следующие цвета({black}, {grey})')
 
     allure.step('Заполняем поле комментарий')
     def set_comment_placeholder(self, comment):
